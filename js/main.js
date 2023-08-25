@@ -1,4 +1,6 @@
 function loadView(viewName) {
+    setLoading(true);
+
     const oldLinkElement = document.getElementById("dynamic-css");
     if (oldLinkElement) {
         oldLinkElement.parentNode.removeChild(oldLinkElement);
@@ -22,7 +24,11 @@ function loadView(viewName) {
             scriptElement.id = "dynamic-js";  // Adicionar um ID para facilitar a remoção posterior
             scriptElement.src = `/js/controllers/${viewName}.js`;
             document.body.appendChild(scriptElement);
-        });
+        }).finally(() => {
+            setTimeout(() => {
+                setLoading(false);
+            },500)
+        });;
 }
 
 function router() {
@@ -32,6 +38,13 @@ function router() {
     } else {
         loadView("home");
     }
+}
+
+function setLoading(isLoading) {
+    console.log('entrou aqui', isLoading);
+    console.log(document.getElementById('loading'));
+    if (isLoading) document.getElementById('loading').style.display = 'flex';
+    else document.getElementById('loading').style.display = 'none';
 }
 
 window.addEventListener("hashchange", router);
