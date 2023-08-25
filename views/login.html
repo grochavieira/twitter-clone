@@ -1,0 +1,72 @@
+<div class="login-container">
+    <div class="login-box">
+        <img src="../assets/img/twitter.png" alt="" class="twitter-logo">
+        <p class="title">TwitterClone</p>
+        <button class="signup-button" onclick="toggleModal('register-modal','open')">Criar Conta</button>
+        <div class="line"></div>
+        <button class="signin-button" onclick="toggleModal('login-modal','open')">Entrar</button>
+        <div class="author-footer">
+            <p class="author">Made by <span class="author-bold">Guilherme Rocha Vieira</span></p>
+        </div>
+
+        <a href="#home">Página HOME</a>
+    </div>
+</div>
+
+<div id="register-modal" class="modal" style="display: none;">
+    <div class="modal-box">
+        <p class="modal-title">Criar sua conta</p>
+
+        <div class="input-container" onclick="focusOnInput(this)">
+            <span class="input-label">Nome</span>
+            <input autocomplete="off" id="name" type="text" class="input-box" oninput="InputDataAnimation(this)">
+        </div>
+
+        <div class="input-container" onclick="focusOnInput(this)">
+            <span class="input-label">Celular</span>
+            <input autocomplete="off" id="phone" type="text" class="input-box" oninput="InputDataAnimation(this)">
+        </div>
+
+        <div class="input-container" onclick="focusOnInput(this)">
+            <span class="input-label">Senha</span>
+            <input autocomplete="off" id="password" type="text" class="input-box" oninput="InputDataAnimation(this)">
+        </div>
+
+        <div class="input-container" onclick="focusOnInput(this)">
+            <span class="input-label">Confirmar Senha</span>
+            <input autocomplete="off" id="confirm-password" type="text" class="input-box" oninput="InputDataAnimation(this)">
+        </div>
+
+        <button class="action-button">Cadastrar</button>
+
+        <div onclick="toggleModal('register-modal','close')" class="close-modal">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </div>
+    </div>
+</div>
+
+<div id="login-modal" class="modal" style="display: none;">
+    <div class="modal-box">
+        <p class="modal-title">Entrar na sua conta</p>
+
+        <div class="input-container">
+            <span class="input-label" onclick="focusOnInput(this)">Celular</span>
+            <input autocomplete="off" id="phone" type="text" class="input-box" oninput="InputDataAnimation(this)">
+        </div>
+
+        <div class="input-container" onclick="focusOnInput(this)">
+            <span class="input-label">Senha</span>
+            <input autocomplete="off" id="password" type="text" class="input-box" oninput="InputDataAnimation(this)">
+        </div>
+
+        <button class="action-button">Entrar</button>
+
+        <div onclick="toggleModal('login-modal','close')" class="close-modal">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </div>
+    </div>
+</div>
