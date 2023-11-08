@@ -13,31 +13,39 @@
     </div>
 </div>
 
+<div id="toast" class="toast">
+    <p id="toast-title" class="toast-title-text"></p>
+
+    <div id="toast-message" class="toast-message-text"></div>
+
+    <img onclick="closeToast()" src="../assets/img/close-icon.svg" alt="" class="toast-close-icon">
+</div>
+
 <div id="register-modal" class="modal" style="display: none;">
     <div class="modal-box">
         <p class="modal-title">Criar sua conta</p>
 
         <div class="input-container" onclick="focusOnInput(this)">
             <span class="input-label">Nome</span>
-            <input autocomplete="off" id="name" type="text" class="input-box" oninput="InputDataAnimation(this)">
+            <input autocomplete="off" id="name" data-name="name" data-type="register" type="text" class="input-box" oninput="getInputData(this)">
         </div>
 
         <div class="input-container" onclick="focusOnInput(this)">
             <span class="input-label">Email</span>
-            <input autocomplete="off" id="email" type="text" class="input-box" oninput="InputDataAnimation(this)">
+            <input autocomplete="off" id="email" data-name="email" data-type="register"  type="text" class="input-box" oninput="getInputData(this)">
         </div>
 
         <div class="input-container" onclick="focusOnInput(this)">
             <span class="input-label">Senha</span>
-            <input autocomplete="off" id="password" type="text" class="input-box" oninput="InputDataAnimation(this)">
+            <input autocomplete="off" id="password" data-name="password" data-type="register"  type="password" class="input-box" oninput="getInputData(this)">
         </div>
 
         <div class="input-container" onclick="focusOnInput(this)">
             <span class="input-label">Confirmar Senha</span>
-            <input autocomplete="off" id="confirm-password" type="text" class="input-box" oninput="InputDataAnimation(this)">
+            <input autocomplete="off" id="confirm-password" data-name="confirmPassword" data-type="register"  type="password" class="input-box" oninput="getInputData(this)">
         </div>
 
-        <button class="action-button">Cadastrar</button>
+        <button class="action-button" onclick="registerUser()" >Cadastrar</button>
 
         <div onclick="toggleModal('register-modal','close')" class="close-modal">
             <span class="material-symbols-outlined">
@@ -53,12 +61,12 @@
 
         <div class="input-container">
             <span class="input-label" onclick="focusOnInput(this)">Email</span>
-            <input autocomplete="off" id="email" type="text" class="input-box" oninput="InputDataAnimation(this)">
+            <input autocomplete="off" id="email" data-name="email" data-type="login" type="text" class="input-box" oninput="getInputData(this)">
         </div>
 
         <div class="input-container" onclick="focusOnInput(this)">
             <span class="input-label">Senha</span>
-            <input autocomplete="off" id="password" type="text" class="input-box" oninput="InputDataAnimation(this)">
+            <input autocomplete="off" id="password" data-name="password" data-type="login" type="text" class="input-box" oninput="getInputData(this)">
         </div>
 
         <button class="action-button">Entrar</button>
