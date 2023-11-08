@@ -6,7 +6,7 @@ function loadView(viewName) {
         oldLinkElement.parentNode.removeChild(oldLinkElement);
     }
 
-    fetch(`/views/${viewName}.html`)
+    fetch(`./views/${viewName}.html`)
         .then(response => response.text())
         .then(html => {
             const app = document.getElementById("app");
@@ -16,19 +16,19 @@ function loadView(viewName) {
             const linkElement = document.createElement("link");
             linkElement.id = "dynamic-css";
             linkElement.rel = "stylesheet";
-            linkElement.href = `/css/${viewName}.css`;
+            linkElement.href = `./css/${viewName}.css`;
             document.head.appendChild(linkElement);
 
             // Carregar JavaScript dinamicamente
             const scriptElement = document.createElement("script");
             scriptElement.id = "dynamic-js";  // Adicionar um ID para facilitar a remoção posterior
-            scriptElement.src = `/js/controllers/${viewName}.js`;
+            scriptElement.src = `./js/controllers/${viewName}.js`;
             document.body.appendChild(scriptElement);
         }).finally(() => {
             setTimeout(() => {
                 setLoading(false);
             },500)
-        });;
+        });
 }
 
 function router() {
